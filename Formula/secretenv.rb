@@ -2,34 +2,35 @@
 class Secretenv < Formula
   desc "Run any process with secrets from all your backends"
   homepage "https://secretenv.dev"
-  version "0.1.1"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.1.1/secretenv-v0.1.1-aarch64-apple-darwin.tar.gz"
-      sha256 "f628fd3485055b1b21eb3eb76910fe403567c14c2f604b95b291b6e29b931307"
+      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.2.0/secretenv-v0.2.0-aarch64-apple-darwin.tar.gz"
+      sha256 "3bb5f03b441e3b33623de133d7a576df77760eab01b109684b263752739148d9"
     else
-      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.1.1/secretenv-v0.1.1-x86_64-apple-darwin.tar.gz"
-      sha256 "bcb58caff9662aafba18ea0ab3e9f3b7e240989cc69b1bac34f12367245542dc"
+      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.2.0/secretenv-v0.2.0-x86_64-apple-darwin.tar.gz"
+      sha256 "29f96032df6da304053316e14063e15ec7e5de6bbbd5652b081a24877d013756"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.1.1/secretenv-v0.1.1-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "576958942a793b584d63f0836624a84e4ccd6e01fbc6f2eea97f984e526e9dfa"
+      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.2.0/secretenv-v0.2.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "4c5c4fb8c856a95774e002050967f07a67acd8b8a31a02c656ca8985705702e6"
     else
-      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.1.1/secretenv-v0.1.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "ce438d6890281f3ae3b20de7d8c236f4d90d84830239c47f748bb5ce340c3e39"
+      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.2.0/secretenv-v0.2.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "7f54f083737fe68dd3d8a011f0742942e2e7081592d0722969c268e2fa890f75"
     end
   end
 
   def install
     bin.install "secretenv"
+    generate_completions_from_executable(bin/"secretenv", "completions")
   end
 
   test do
-    assert_match "secretenv 0.1.1", shell_output("#{bin}/secretenv --version")
+    assert_match "secretenv 0.2.0", shell_output("#{bin}/secretenv --version")
   end
 end
