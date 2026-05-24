@@ -2,26 +2,26 @@
 class Secretenv < Formula
   desc "Run any process with secrets from all your backends"
   homepage "https://secretenv.io"
-  version "0.15.0"
+  version "0.16.0"
   license "AGPL-3.0-only"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.15.0/secretenv-v0.15.0-aarch64-apple-darwin.tar.gz"
-      sha256 "7cfece5636f10500691601d7f089afc1c1250eab496099b73db614861bfc7541"
+      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.16.0/secretenv-v0.16.0-aarch64-apple-darwin.tar.gz"
+      sha256 "38be0520bc34a594924ab82e6df6eda2bb3cdf4849bbe97a8597f7843c14f15f"
     else
-      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.15.0/secretenv-v0.15.0-x86_64-apple-darwin.tar.gz"
-      sha256 "c3127f89cf9533b934aed668984358f0a1ddea767aaad1f9e969f61e82644ab4"
+      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.16.0/secretenv-v0.16.0-x86_64-apple-darwin.tar.gz"
+      sha256 "fd306a5c9069ebdd27c93825e5a9a941d2e6af20507a40a78ded23ebbc2902de"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.15.0/secretenv-v0.15.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "c839fb0827b3dd915b43120b1ef5ee74b9c6126cc3f0979f303cd8187459f15f"
+      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.16.0/secretenv-v0.16.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "85a447dee8cc744f9e6c2c5a15b7386f195f99254773e370aa460d99ce79a741"
     else
-      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.15.0/secretenv-v0.15.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "987f7330078e6a030ab6962d703f1c10424c716c27ba51a1cd422320a2fff9d1"
+      url "https://github.com/TechAlchemistX/secretenv/releases/download/v0.16.0/secretenv-v0.16.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "af9885f9543bc751075d45a84de0d400d71a26459b1d319aa0e2b6b8421e4eba"
     end
   end
 
@@ -31,6 +31,6 @@ class Secretenv < Formula
   end
 
   test do
-    assert_match "secretenv 0.15.0", shell_output("#{bin}/secretenv --version")
+    assert_match "secretenv 0.16.0", shell_output("#{bin}/secretenv --version")
   end
 end
